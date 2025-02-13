@@ -1,17 +1,20 @@
-package Utilities;
+package BankTask;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.List;
 
-public class SeleniumActions {
+public class SeleniumAction {
     WebDriver driver;
 
-    public SeleniumActions(WebDriver driver) {
+    public SeleniumAction(WebDriver driver) {
         this.driver=driver;
     }
 
@@ -40,9 +43,16 @@ public class SeleniumActions {
     public String getTextMessage(By by){
         return driver.findElement(by).getText();
     }
+    public void elementNot1(By by){
+        WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement element1=wait.until(ExpectedConditions.visibilityOfElementLocated(by));
+        element1.click();
 
-    public void selectByValue1(WebElement dropdown, String value) {
-        Select select = new Select(dropdown);
+    }
+
+    public void selectByValue1(By by, String value) {
+        WebElement element = driver.findElement(by);
+        Select select = new Select(element);
         select.selectByValue(value);
     }
     public String getFirstProductData(By by){
@@ -61,3 +71,6 @@ public class SeleniumActions {
 
     }
 }
+
+
+

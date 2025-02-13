@@ -23,7 +23,7 @@ public class HomePage {
         seleniumActions.clickOnElement(captchaButton);
     }
     public void clickOnProductSearchBar(){
-        seleniumActions.enterValue(productSearch,"pepsi");
+        seleniumActions.enterValue(productSearch,"dog");
     }
     public void clickOnSuggestionItem(){
         seleniumActions.clickOnElement(suggestionProduct);
@@ -31,17 +31,20 @@ public class HomePage {
     public void clickOnSearchIcon(){
         seleniumActions.clickOnElement(searchIcon);
     }
-    public String getProductText(){
-        return seleniumActions.getTextMessage(productText);
-    }
+//    public String getProductText(){
+//        return seleniumActions.getTextMessage(productText);
+//    }
     //    public String getProductPrice(){
 //        return  seleniumActions.getTextMessage(productPrice);
 //    }
     public String getProductPrice(){
         return seleniumActions.getFirstProductData(productPrice);
     }
+    public String getProductText(){
+        return seleniumActions.getFirstProductData(productText);
+    }
     public void clickOnAddButton(){
-        seleniumActions.clickOnElement(addButton);
+        seleniumActions.clickOnElement1(addButton);
     }
     public void move(){
         seleniumActions.moveTOElement(productSearch);
